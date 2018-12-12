@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PurchaseFile", "E:\Data\PurchaseFile\", "{099C0FF8-90D2-420A-AA8B-D90AFCE1DFC9}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.VirtualPath = "/PurchaseFile"
+		Debug.AspNetCompiler.PhysicalPath = "D:\02. Shakil Ahmed\Projects Show Case\Purchase Monitoring Software\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\PurchaseFile\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/PurchaseFile"
+		Release.AspNetCompiler.PhysicalPath = "D:\02. Shakil Ahmed\Projects Show Case\Purchase Monitoring Software\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\PurchaseFile\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "49994"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "3.5"
+		Debug.AspNetCompiler.VirtualPath = "/PurchaseFile"
+		Debug.AspNetCompiler.PhysicalPath = "D:\02. Shakil Ahmed\Projects Show Case\Purchase Monitoring Software\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\PurchaseFile\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/PurchaseFile"
+		Release.AspNetCompiler.PhysicalPath = "D:\02. Shakil Ahmed\Projects Show Case\Purchase Monitoring Software\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\PurchaseFile\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "49994"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{099C0FF8-90D2-420A-AA8B-D90AFCE1DFC9}.Debug|.NET.ActiveCfg = Debug|.NET
+		{099C0FF8-90D2-420A-AA8B-D90AFCE1DFC9}.Debug|.NET.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EDBEE77C-67C9-4DD8-941F-B745A6809B8B}
+	EndGlobalSection
+EndGlobal

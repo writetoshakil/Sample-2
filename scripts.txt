@@ -1,0 +1,256 @@
+-- select * from vw_TenderCases
+alter view vw_TenderCases
+as
+select f.fileno, f.subject, f.event, f.typeofprocurement, f.sourceoffunding, f.diaryindate, d.description EndUser, 'T' type, f.requisitiondate, f.boqsdate, 
+(select top 1 tenderno from tblsinglestageoneenveloptender where fileno = f.fileno order by srno desc) tenderno,
+(select top 1 tenderuploadeddate from tblsinglestageoneenveloptender where fileno = f.fileno order by srno desc) tenderopeningdate,
+(select top 1 purchasecommitteedate from tblsinglestageoneenveloptender where fileno = f.fileno order by srno desc) purchasecommitteedate,
+(select top 1 finalapprovaldate from tblsinglestageoneenveloptender where fileno = f.fileno order by srno desc) finalapprovaldate,
+(select top 1 approvedamount from tblsinglestageoneenveloptender where fileno = f.fileno and approvedamount is not null order by srno desc) approvedamount,
+(select top 1 supplyorderdate from tblsinglestageoneenveloptender where fileno = f.fileno order by srno desc) supplyorderdate,
+(select top 1 stockentryforwardeddate from tblsinglestageoneenveloptender where fileno = f.fileno order by srno desc) stockentryforwardeddate,
+(select top 1 completioncertificatedate from tblsinglestageoneenveloptender where fileno = f.fileno order by srno desc) completioncertificatedate,
+(select top 1 filesentforpaymentdate from tblsinglestageoneenveloptender where fileno = f.fileno order by srno desc) filesentforpaymentdate,
+(select top 1 paymentmadedate from tblsinglestageoneenveloptender where fileno = f.fileno order by srno desc) paymentmadedate,
+(select top 1 expectedDOD from tblsinglestageoneenveloptender where fileno = f.fileno order by srno desc) expectedDOD,
+(select name from tblvendor where vendorid = (select top 1 vendorid from tblsinglestageoneenveloptender where fileno = f.fileno)) name, 
+(select top 1 supplydate from tblsinglestageoneenveloptender where fileno = f.fileno order by srno desc) supplydate,
+(select top 1 remarks from tblfileremarks where fileno = f.fileno order by sr desc) remarks, f.status
+from tblfile f, tbldepartment d
+where f.departmentid = d.departmentid and f.type = 1
+union
+select f.fileno, f.subject, f.event,f.typeofprocurement, f.sourceoffunding, f.diaryindate, d.description EndUser, 'T' type, f.requisitiondate, f.boqsdate, 
+(select top 1 tenderno from tblsinglestagetwoenveloptender where fileno = f.fileno order by srno desc) tenderno,
+(select top 1 tenderuploadeddate from tblsinglestagetwoenveloptender where fileno = f.fileno order by srno desc) tenderopeningdate,
+(select top 1 purchasecommitteedate from tblsinglestagetwoenveloptender where fileno = f.fileno order by srno desc) purchasecommitteedate,
+(select top 1 finalapproveddate from tblsinglestagetwoenveloptender where fileno = f.fileno order by srno desc) finalapprovaldate,
+(select top 1 approvedamount from tblsinglestagetwoenveloptender where fileno = f.fileno and approvedamount is not null order by srno desc) approvedamount,
+(select top 1 supplyorderdate from tblsinglestagetwoenveloptender where fileno = f.fileno order by srno desc) supplyorderdate,
+(select top 1 stockentryforwardeddate from tblsinglestagetwoenveloptender where fileno = f.fileno order by srno desc) stockentryforwardeddate,
+(select top 1 completioncertificatedate from tblsinglestagetwoenveloptender where fileno = f.fileno order by srno desc) completioncertificatedate,
+(select top 1 filesentforpaymentdate from tblsinglestagetwoenveloptender where fileno = f.fileno order by srno desc) filesentforpaymentdate,
+(select top 1 paymentmadedate from tblsinglestagetwoenveloptender where fileno = f.fileno order by srno desc) paymentmadedate,
+(select top 1 expectedDOD from tblsinglestagetwoenveloptender where fileno = f.fileno order by srno desc) expectedDOD,
+(select name from tblvendor where vendorid = (select top 1 vendorid from tblsinglestagetwoenveloptender where fileno = f.fileno)) name, 
+(select top 1 supplydate from tblsinglestagetwoenveloptender where fileno = f.fileno order by srno desc) supplydate,
+(select top 1 remarks from tblfileremarks where fileno = f.fileno order by sr desc) remarks, f.status
+from tblfile f, tbldepartment d
+where f.departmentid = d.departmentid and f.type = 4
+union
+select f.fileno, f.subject, f.event,f.typeofprocurement, f.sourceoffunding, f.diaryindate, d.description EndUser, 'Q' type, f.requisitiondate, f.boqsdate, 
+(select top 1 'N/A' from tblquotation where fileno = f.fileno order by srno desc) tenderno,
+(select top 1 quotationinviteddate from tblquotation where fileno = f.fileno order by srno desc) tenderopeningdate,
+(select top 1 purchasecommitteedate from tblquotation where fileno = f.fileno order by srno desc) purchasecommitteedate,
+(select top 1 finalapprovaldate from tblquotation where fileno = f.fileno order by srno desc) finalapprovaldate,
+(select top 1 approvedamount from tblquotation where fileno = f.fileno and approvedamount is not null order by srno desc) approvedamount,
+(select top 1 supplyorderdate from tblquotation where fileno = f.fileno order by srno desc) supplyorderdate,
+(select top 1 stockentryforwardeddate from tblquotation where fileno = f.fileno order by srno desc) stockentryforwardeddate,
+(select top 1 completioncertificatedate from tblquotation where fileno = f.fileno order by srno desc) completioncertificatedate,
+(select top 1 filesentforpaymentdate from tblquotation where fileno = f.fileno order by srno desc) filesentforpaymentdate,
+(select top 1 paymentmadedate from tblquotation where fileno = f.fileno order by srno desc) paymentmadedate,
+(select top 1 expectedDOD from tblquotation where fileno = f.fileno order by srno desc) expectedDOD,
+(select name from tblvendor where vendorid = (select top 1 vendorid from tblquotation where fileno = f.fileno)) name, 
+(select top 1 supplydate from tblquotation where fileno = f.fileno order by srno desc) supplydate,
+(select top 1 remarks from tblfileremarks where fileno = f.fileno order by sr desc) remarks, f.status
+from tblfile f, tbldepartment d
+where f.departmentid = d.departmentid and f.type = 2
+union
+select f.fileno, f.subject, f.event,f.typeofprocurement, f.sourceoffunding, f.diaryindate, d.description EndUser, 'P' 'Type', f.requisitiondate, f.boqsdate, null 'tenderno', 
+null 'tenderopeningdate', null 'purchasecommitteedate', null 'finalapprovaldate', 
+(select top 1 approvedamount from tblpettycash where fileno = f.fileno and approvedamount is not null) approvedamount, null 'supplyorderdate', null 'stockentryforwardeddate', 
+null 'completioncertificatedate', null 'filesentforpaymentdate', null 'paymentmadedate', null 'expectedDOD', null 'name',
+(select top 1 supplydate from tblpettycash where fileno = f.fileno) supplydate,
+(select top 1 remarks from tblfileremarks where fileno = f.fileno order by sr desc) remarks, f.status
+from tblfile f, tbldepartment d
+where f.departmentid = d.departmentid and f.type = 3
+
+=======================================================================================================================================================================
+
+
+-- select * from vw_CPCMeetingSchedule
+alter view vw_CPCMeetingSchedule
+as
+select f.fileno, f.subject, d.description EndUser, 'Tender' type, 
+(select top 1 purchasecommitteedate from tblsinglestageoneenveloptender where fileno = f.fileno order by srno desc) tenderopeningdate, null 'Co-opted Members'
+from tblfile f, tbldepartment d
+where f.departmentid = d.departmentid and f.type = 1
+union
+select f.fileno, f.subject, d.description EndUser, 'Tender' type,
+(select top 1 purchasecommitteedate from tblsinglestagetwoenveloptender where fileno = f.fileno order by srno desc) tenderopeningdate, null 'Co-opted Members'
+from tblfile f, tbldepartment d
+where f.departmentid = d.departmentid and f.type = 4
+union
+select f.fileno, f.subject, d.description EndUser, 'Quotation' type,  
+(select top 1 purchasecommitteedate from tblquotation where fileno = f.fileno order by srno desc) purchasecommitteedate, null 'Co-opted Members'
+from tblfile f, tbldepartment d
+where f.departmentid = d.departmentid and f.type = 2
+
+=======================================================================================================================================================================
+
+-- select * from vw_DetailViewOfAnIndividualCase
+create view vw_DetailViewOfAnIndividualCase
+as
+select f.fileno, 'T' as type,  f.sourceoffunding, convert(varchar(50), f.diaryindate, 105) diaryindate,
+(select top 1 convert(varchar(50), tenderuploadeddate, 105) from tblsinglestageoneenveloptender where fileno = f.fileno order by srno desc) 'Tender_Quotation_Date',
+(select top 1 convert(varchar(50), purchasecommitteedate, 105) from tblsinglestageoneenveloptender where fileno = f.fileno order by srno desc) 'CPCMeeting',
+(select top 1 convert(varchar(50), finalapprovaldate, 105) from tblsinglestageoneenveloptender where fileno = f.fileno order by srno desc) 'FinalApprovalDate',
+(select top 1 approvedamount from tblsinglestageoneenveloptender where fileno = f.fileno order by srno desc) 'ApprovedAmount',
+(select top 1 convert(varchar(50), supplyorderdate, 105) from tblsinglestageoneenveloptender where fileno = f.fileno order by srno desc) 'SupplyOrderDate',
+(select name from tblvendor where vendorid = (select top 1 vendorid from tblsinglestageoneenveloptender where fileno = f.fileno)) 'Vendor',
+(select top 1 convert(varchar(50), supplydate, 105) from tblsinglestageoneenveloptender where fileno = f.fileno order by srno desc) 'SupplyDate',
+(select top 1 convert(varchar(50), stockentryforwardeddate, 105) from tblsinglestageoneenveloptender where fileno = f.fileno order by srno desc) 'StockEntryForwardedDate',
+(select top 1 convert(varchar(50), completioncertificatedate, 105) from tblsinglestageoneenveloptender where fileno = f.fileno order by srno desc) 'CompletionCertificateDate',
+(select top 1 convert(varchar(50), filesentforpaymentdate, 105) from tblsinglestageoneenveloptender where fileno = f.fileno order by srno desc) 'FileSentForPaymentDate',
+(select top 1 convert(varchar(50), paymentmadedate, 105) from tblsinglestageoneenveloptender where fileno = f.fileno order by srno desc) 'PaymentMadeDate'
+from tblfile f where type = 1
+union
+select f.fileno, 'T' as type, f.sourceoffunding, convert(varchar(50), f.diaryindate, 105) diaryindate,
+(select top 1 convert(varchar(50), tenderuploadeddate, 105) from tblsinglestagetwoenveloptender where fileno = f.fileno order by srno desc) 'Tender_Quotation_Date',
+(select top 1 convert(varchar(50), purchasecommitteedate, 105) from tblsinglestagetwoenveloptender where fileno = f.fileno order by srno desc) 'CPCMeeting',
+(select top 1 convert(varchar(50), finalapproveddate, 105) from tblsinglestagetwoenveloptender where fileno = f.fileno order by srno desc) 'FinalApprovalDate',
+(select top 1 approvedamount from tblsinglestagetwoenveloptender where fileno = f.fileno order by srno desc) 'ApprovedAmount',
+(select top 1 convert(varchar(50), supplyorderdate, 105) from tblsinglestagetwoenveloptender where fileno = f.fileno order by srno desc) 'SupplyOrderDate',
+(select name from tblvendor where vendorid = (select top 1 vendorid from tblsinglestagetwoenveloptender where fileno = f.fileno)) 'Vendor',
+(select top 1 convert(varchar(50), supplydate, 105) from tblsinglestagetwoenveloptender where fileno = f.fileno order by srno desc) 'SupplyDate',
+(select top 1 convert(varchar(50), stockentryforwardeddate, 105) from tblsinglestagetwoenveloptender where fileno = f.fileno order by srno desc) 'StockEntryForwardedDate',
+(select top 1 convert(varchar(50), completioncertificatedate, 105) from tblsinglestagetwoenveloptender where fileno = f.fileno order by srno desc) 'CompletionCertificateDate',
+(select top 1 convert(varchar(50), filesentforpaymentdate, 105) from tblsinglestagetwoenveloptender where fileno = f.fileno order by srno desc) 'FileSentForPaymentDate',
+(select top 1 convert(varchar(50), paymentmadedate, 105) from tblsinglestagetwoenveloptender where fileno = f.fileno order by srno desc) 'PaymentMadeDate'
+from tblfile f where type = 4
+union
+select f.fileno, 'Q' as type, f.sourcepo6655966888
+offunding, convert(varchar(50), f.diaryindate, 105) diaryindate,
+(select top 1 convert(varchar(50), quotationinviteddate, 105) from tblquotation where fileno = f.fileno order by srno desc) 'Tender_Quotation_Date',
+(select top 1 convert(varchar(50), purchasecommitteedate, 105) from tblquotation where fileno = f.fileno order by srno desc) 'CPCMeeting',
+(select top 1 convert(varchar(50), finalapprovaldate, 105) from tblquotation where fileno = f.fileno order by srno desc) 'FinalApprovalDate',
+(select top 1 approvedamount from tblquotation where fileno = f.fileno order by srno desc) 'ApprovedAmount',
+(select top 1 convert(varchar(50), supplyorderdate, 105) from tblquotation where fileno = f.fileno order by srno desc) 'SupplyOrderDate',
+(select name from tblvendor where vendorid = (select top 1 vendorid from tblquotation where fileno = f.fileno)) 'Vendor',
+(select top 1 convert(varchar(50), supplydate, 105) from tblquotation where fileno = f.fileno order by srno desc) 'SupplyDate',
+(select top 1 convert(varchar(50), stockentryforwardeddate, 105) from tblquotation where fileno = f.fileno order by srno desc) 'StockEntryForwardedDate',
+(select top 1 convert(varchar(50), completioncertificatedate, 105) from tblquotation where fileno = f.fileno order by srno desc) 'CompletionCertificateDate',
+(select top 1 convert(varchar(50), filesentforpaymentdate, 105) from tblquotation where fileno = f.fileno order by srno desc) 'FileSentForPaymentDate',
+(select top 1 convert(varchar(50), paymentmadedate, 105) from tblquotation where fileno = f.fileno order by srno desc) 'PaymentMadeDate'
+from tblfile f where type = 2
+
+====================================================================================================================================================================
+
+-- select * from vw_MainPageView
+alter view vw_MainPageView 
+as
+select f.fileno, f.subject, d.description enduser, f.event, t.description filetype, f.requisitiondate, f.status,
+isnull((select top 1 tenderno from tblsinglestageoneenveloptender where fileno = f.fileno and tenderno is not null order by srno desc), 'N/A') tenderno, 
+isnull((select max(purchasecommitteedate) from tblsinglestageoneenveloptender where fileno = f.fileno and purchasecommitteedate is not null), '1900-1-1') purchasecommitteedate, 
+isnull((select max(approvedamount) from tblsinglestageoneenveloptender where fileno = f.fileno and approvedamount is not null), 0) approvedamount,
+isnull((select max(supplyorderdate) from tblsinglestageoneenveloptender where fileno = f.fileno and supplyorderdate is not null), '1900-1-1') supplyorderdate, 
+isnull((select max(supplydate) from tblsinglestageoneenveloptender where fileno = f.fileno and supplydate is not null), '1900-1-1') supplydate, 
+isnull((select top 1 remarks from tblfileremarks where fileno = f.fileno and remarks is not null order by sr desc), 'N/A') remarks
+from tblfile f, tbldepartment d, tbltype t
+where f.departmentid = d.departmentid and f.type = t.typeid and f.type = 1
+union
+select f.fileno, f.subject, d.description enduser, f.event, t.description filetype, f.requisitiondate, f.status,
+isnull((select top 1 tenderno from tblsinglestagetwoenveloptender where fileno = f.fileno and tenderno is not null order by srno desc), '1900-1-1') tenderno, 
+isnull((select max(technicalopeningdate) from tblsinglestagetwoenveloptender where fileno = f.fileno and purchasecommitteedate is not null), '1900-1-1') purchasecommitteedate, 
+isnull((select max(approvedamount) from tblsinglestagetwoenveloptender where fileno = f.fileno and approvedamount is not null), 0) approvedamount,
+isnull((select max(supplyorderdate) from tblsinglestagetwoenveloptender where fileno = f.fileno and supplyorderdate is not null), '1900-1-1') supplyorderdate, 
+isnull((select max(supplydate) from tblsinglestagetwoenveloptender where fileno = f.fileno and supplydate is not null), '1900-1-1') supplydate, 
+isnull((select top 1 remarks from tblfileremarks where fileno = f.fileno and remarks is not null order by sr desc), 'N/A') remarks
+from tblfile f, tbldepartment d, tbltype t
+where f.departmentid = d.departmentid and f.type = t.typeid and f.type = 4
+union
+select f.fileno, f.subject, d.description enduser, f.event, t.description filetype, f.requisitiondate, f.status,
+null tenderno, 
+isnull((select max(purchasecommitteedate) from tblquotation where fileno = f.fileno and purchasecommitteedate is not null), '1900-1-1') purchasecommitteedate, 
+isnull((select max(approvedamount) from tblquotation where fileno = f.fileno and approvedamount is not null), 0) approvedamount,
+isnull((select max(supplyorderdate) from tblquotation where fileno = f.fileno and supplyorderdate is not null), '1900-1-1') supplyorderdate, 
+isnull((select max(supplydate) from tblquotation where fileno = f.fileno and supplydate is not null), '1900-1-1') supplydate, 
+isnull((select top 1 remarks from tblfileremarks where fileno = f.fileno and remarks is not null order by sr desc), 'N/A') remarks
+from tblfile f, tbldepartment d, tbltype t
+where f.departmentid = d.departmentid and f.type = t.typeid and f.type = 2
+union
+select f.fileno, f.subject, d.description enduser, f.event, t.description filetype, f.requisitiondate, f.status,
+null tenderno, 
+null purchasecommitteedate, 
+isnull((select max(approvedamount) from tblpettycash where fileno = f.fileno and approvedamount is not null), 0) approvedamount,
+null supplyorderdate, 
+isnull((select max(supplydate) from tblpettycash where fileno = f.fileno and supplydate is not null), '1900-1-1') supplydate, 
+isnull((select top 1 remarks from tblfileremarks where fileno = f.fileno and remarks is not null order by sr desc), 'N/A') remarks
+from tblfile f, tbldepartment d, tbltype t
+where f.departmentid = d.departmentid and f.type = t.typeid and f.type = 3
+
+=====================================================================================================================================================================
+
+-- select * from vw_DetailView order by fileno
+alter view vw_DetailView
+as
+select f.fileno, 'T' as type, f.typeofprocurement,  f.sourceoffunding, convert(varchar(50), f.diaryindate, 105) diaryindate,
+convert(varchar(50), t.tenderuploadeddate, 105) tender_quotation_date, convert(varchar(50), purchasecommitteedate, 105) cpcmeeting, convert(varchar(50), finalapprovaldate, 105) finalapprovaldate, approvedamount, convert(varchar(50), supplyorderdate, 105) supplyorderdate, v.name vendor, 
+convert(varchar(50), t.supplydate, 105) supplydate, convert(varchar(50), t.stockentryforwardeddate, 105) stockentryforwardeddate,
+convert(varchar(50), t.completioncertificatedate, 105) completioncertificatedate, convert(varchar(50), t.filesentforpaymentdate, 105) filesentforpaymentdate, convert(varchar(50), t.paymentmadedate, 105) paymentmadedate
+from tblfile f, tblsinglestageoneenveloptender t, tblvendor v
+where f.fileno = t.fileno and t.vendorid = v.vendorid and f.type = 1
+union
+select f.fileno, 'T' as type, f.typeofprocurement, f.sourceoffunding, convert(varchar(50), f.diaryindate, 105) diaryindate,
+convert(varchar(50), t.tenderuploadeddate, 105) tender_quotation_date, convert(varchar(50), t.purchasecommitteedate, 105) cpcmeeting, convert (varchar(50), t.finalapproveddate, 105) finalapprovaldate, t.approvedamount, convert(varchar(50), t.supplyorderdate, 105) supplyorderdate, 
+v.name vendor, convert(varchar(50), t.supplydate, 105) supplydate, convert(varchar(50), t.stockentryforwardeddate, 105) stockentryforwardeddate, convert(varchar(50), t.completioncertificatedate, 105) completioncertificatedate, convert(varchar(50), t.filesentforpaymentdate, 105) filesentforpaymentdate, convert(varchar(50), t.paymentmadedate, 105) paymentmadedate
+from tblfile f, tblsinglestagetwoenveloptender t, tblvendor v 
+where f.fileno = t.fileno and t.vendorid = v.vendorid and f.type = 4
+union
+select f.fileno, 'Q' as type, f.typeofprocurement, f.sourceoffunding, convert(varchar(50), f.diaryindate, 105) diaryindate,
+convert(varchar(50), q.quotationinviteddate, 105) tender_quotation_date, convert(varchar(50), q.purchasecommitteedate, 105) cpcmeeting, convert(varchar(50), q.finalapprovaldate, 105) finalapprovaldate, q.approvedamount, 
+convert(varchar(50), q.supplyorderdate, 105) supplyorderdate, v.name vendor, convert(varchar(50), q.supplydate, 105) supplydate, convert(varchar(50), q.stockentryforwardeddate, 105) stockentryforwardeddate, convert(varchar(50), q.completioncertificatedate, 105) completioncertificatedate, convert(varchar(50), q.filesentforpaymentdate, 105) filesentforpaymentdate, convert(varchar(50), q.paymentmadedate, 105) paymentmadedate
+from tblfile f, tblquotation q, tblvendor v 
+where f.fileno = q.fileno and q.vendorid = v.vendorid and f.type = 2
+union
+select f.fileno, 'P' as type, f.typeofprocurement, f.sourceoffunding, convert(varchar(50), f.diaryindate, 105) diaryindate,
+null tender_quotation_date, null cpcmeeting, null finalapprovaldate, p.approvedamount, null supplyorderdate, null vendor, convert(varchar(50), p.supplydate, 105) supplydate, 
+convert(varchar(50), p.stockentryforwardeddate, 105) stockentryforwardeddate, convert(varchar(50), p.completioncertificatedate, 105) completioncertificatedate, convert(varchar(50), p.filesentforpaymentdate, 105) filesentforpaymentdate, convert(varchar(50), p.paymentmadedate, 105) paymentmadedate
+from tblfile f, tblpettycash p
+where f.fileno = p.fileno and f.type = 3
+
+=====================================================================================================================================================================
+
+alter view vw_FollowUpReport
+as
+SELECT f.fileno, f.subject, d .description,
+isnull ((SELECT     TOP 1 sr FROM tblfileremarks WHERE isactive = 1 AND fileno = f.fileno ORDER BY sr DESC), 0) RemarksSr,
+(SELECT TOP 1 remarks FROM tblfileremarks WHERE isactive = 1 AND fileno = f.fileno ORDER BY sr DESC) remarks,
+(SELECT TOP 1 CONVERT(varchar(50), followupdate, 105) FROM tblsinglestageoneenveloptender WHERE fileno = f.fileno ORDER BY srno DESC) followupdate,
+(SELECT TOP 1 remarks FROM tblsinglestageoneenveloptender WHERE fileno = f.fileno ORDER BY srno DESC) FollowUpRemarks,
+(select isactive from tblFileRemarks where sr = (select TOP 1 sr from tblFileRemarks where fileno = f.fileno ORDER BY sr DESC)) FileREmarks 
+FROM tblfile f, tbldepartment d
+-- See file type from tblType
+WHERE f.departmentid = d .departmentid AND f.type = 1
+UNION
+SELECT f.fileno, f.subject, d .description, 
+isnull ((SELECT TOP 1 sr FROM tblfileremarks WHERE isactive = 1 AND fileno = f.fileno ORDER BY sr DESC), 0) RemarksSr,
+(SELECT TOP 1 remarks FROM tblfileremarks WHERE isactive = 1 AND fileno = f.fileno ORDER BY sr DESC) remarks,
+(SELECT TOP 1 CONVERT(varchar(50), followupdate, 105) FROM tblsinglestagetwoenveloptender WHERE fileno = f.fileno ORDER BY srno DESC) followupdate,
+(SELECT TOP 1 remarks FROM tblsinglestagetwoenveloptender WHERE fileno = f.fileno ORDER BY srno DESC) FollowUpRemarks,
+(select isactive from tblFileRemarks where sr = (select TOP 1 sr from tblFileRemarks where fileno = f.fileno ORDER BY sr DESC)) FileREmarks
+FROM tblfile f, tbldepartment d
+WHERE f.departmentid = d .departmentid AND f.type = 4
+UNION
+SELECT f.fileno, f.subject, d .description, 
+isnull ((SELECT TOP 1 sr FROM tblfileremarks WHERE isactive = 1 AND fileno = f.fileno ORDER BY sr DESC), 0) RemarksSr,
+(SELECT TOP 1 remarks FROM tblfileremarks WHERE isactive = 1 AND fileno = f.fileno ORDER BY sr DESC) remarks,
+(SELECT TOP 1 CONVERT(varchar(50), followupdate, 105) FROM tblQuotation WHERE fileno = f.fileno ORDER BY srno DESC) followupdate,
+(SELECT TOP 1 remarks FROM tblQuotation WHERE fileno = f.fileno ORDER BY srno DESC) FollowUpRemarks,
+(select isactive from tblFileRemarks where sr = (select TOP 1 sr from tblFileRemarks where fileno = f.fileno ORDER BY sr DESC)) FileREmarks
+FROM tblfile f, tbldepartment d
+WHERE f.departmentid = d .departmentid AND f.type = 2
+-- select * from vw_FollowUpReport
+
+
+=====================================================================================================================================================================
+
+alter view vw_VendorDetail
+as
+select v.vendorid, v.name, v.designation, v.contactperson contactperson1, v.contactperson1 contactperson2, v.address, v.contactno, v.mobileno, v.emailid, 
+v.prequalified, v.IsActive, b.businessid, b.natureofbusiness
+from tblvendor v, tblnatureofbusiness b, tblvendornatureofbusiness n
+where v.vendorid = n.vendorid and b.businessid = n.businessid
+
+=====================================================================================================================================================================
+
+

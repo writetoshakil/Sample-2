@@ -1,0 +1,137 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="mp_Old.master.cs" Inherits="mp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>::...  ...::</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="demos.css" />
+    <link rel="stylesheet" href="themes/base/jquery.ui.all.css" />
+    <script type="text/javascript" language="JavaScript1.2" src="stm31.js"></script>
+</head>
+<body class="body" style="background-color:#333333; background-repeat:repeat-x; vertical-align:top; color: #000000;">
+    <form id="form1" runat="server">
+        <table  border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td>
+        	        <table border="0"  cellpadding="0" cellspacing="0" width="950px"  align="center">
+                        <tr>
+                           <td>
+                                <table width="950px" align="center" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td colspan="2" style="vertical-align: top; background-color:White">
+                                            <table width="950px" align="center" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td style="width:250px; text-align:left; height: 31px;">
+                                                        <span style="font-size: small; font-family: Verdana">COMSATS, Lahore</span></td>
+                                                    <td style="width:700px; text-align:right; height: 31px;">
+                                                        <a href='frmFollowUpReport.aspx'>
+                                                            <span style="font-size: x-small; font-family: Verdana; background-color:#333333; color:White">
+                                                                <strong>FollowUp</strong>
+                                                            </span>
+                                                        </a> |
+                                                        <a href='frmSummaryView.aspx'>
+                                                            <span style="font-size: x-small; font-family: Verdana; background-color:#333333; color:White">
+                                                                <strong>Summary</strong>
+                                                            </span>
+                                                        </a> |
+                                                        <a href='frmFile.aspx'>
+                                                            <span style="font-size: x-small; font-family: Verdana; background-color:#333333; color:White">
+                                                                <strong>File Management</strong>
+                                                            </span>
+                                                        </a> |
+                                                        <a href='frmDepartment.aspx'>
+                                                            <span style="font-size: x-small; font-family: Verdana; background-color:#333333; color:White">
+                                                                <strong>Department</strong>
+                                                            </span>
+                                                        </a> |
+                                                        <a href='frmFileType.aspx'>
+                                                            <span style="font-size: x-small; font-family: Verdana; background-color:#333333; color:White"">
+                                                                <strong> File Type </strong>
+                                                            </span>
+                                                        </a>|
+                                                        <a href='frmVendor.aspx'>
+                                                            <span style="font-size: x-small; font-family: Verdana; background-color:#333333; color:White"">
+                                                                <strong> Vendor </strong>
+                                                            </span>
+                                                        </a>|
+                                                        <a href='frmLocation.aspx'>
+                                                            <span style="font-size: x-small; font-family: Verdana; background-color:#333333; color:White"">
+                                                                <strong> Location </strong>
+                                                            </span>
+                                                        </a>|
+                                                        <a href='frmCPCMeeting.aspx'>
+                                                            <span style="font-size: x-small; font-family: Verdana; background-color:#333333; color:White"">
+                                                                <strong>CPC Meeting</strong>
+                                                            </span>
+                                                        </a>|
+                                                        <a href='frmTenderCasesReport.aspx'>
+                                                            <span style="font-size: x-small; font-family: Verdana; background-color:#333333; color:White"">
+                                                                <strong> Complete Report </strong>
+                                                            </span>
+                                                        </a>|
+                                                        <a href='Default.aspx'>
+                                                            <span style="font-size: x-small; font-family: Verdana; background-color:#333333; color:White"">
+                                                                <strong> Log Out </strong>
+                                                            </span>
+                                                        </a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="height: 31px; text-align: center">
+                                                        <span style="font-size: 10pt; font-family: Verdana"><strong>COMSATS Institute of Information
+                                                            Technology, Lahore</strong></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 250px; height: 31px; text-align: left">
+                                                    </td>
+                                                    <td style="width: 700px; height: 31px; text-align: right">
+                                                        <script type="text/javascript" language="JavaScript1.2" src="Purchase_Menu.js"></script>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:90px; height: 90px;">
+                                            <img src="images/logo.jpg", style="width: 94px; height: 90px" />
+                                        </td>
+                                        <td style="width:860px; text-align:center; font-family:Verdana; font-size:larger; color:White; height: 90px;">
+                                            <b> Procurement Management System</b></td>
+                                    </tr>
+                                </table>
+                           </td>
+                        </tr>          
+                        <tr>
+                            <td style="background-color:White">
+                                <asp:contentplaceholder id="ContentPlaceHolderPublic" runat="server">
+                                </asp:contentplaceholder>
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table width="950px" align="center" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td style="width: 800px; background-color:Black; text-align:left; font-family:Verdana; font-size:x-small; color:White">
+                                            Copyright 2013@ Purchase Office – CIIT Lahore
+                                        </td>
+                                        <td style="width: 150px; background-color:Black; text-align:right; font-family:Verdana; font-size:larger; color:White">
+                                            <span style="font-size: 10pt">Purchase / CITC</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>		                		                      			
+			        </table> 
+                </td>
+            </tr>
+            
+        </table>  
+    </form>
+</body>
+</html>

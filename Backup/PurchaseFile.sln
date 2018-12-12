@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PurchaseFile", "E:\Data\PurchaseFile\", "{099C0FF8-90D2-420A-AA8B-D90AFCE1DFC9}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "3.5"
+		Debug.AspNetCompiler.VirtualPath = "/PurchaseFile"
+		Debug.AspNetCompiler.PhysicalPath = "E:\Data\PurchaseFile\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\PurchaseFile\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/PurchaseFile"
+		Release.AspNetCompiler.PhysicalPath = "E:\Data\PurchaseFile\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\PurchaseFile\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "49994"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{099C0FF8-90D2-420A-AA8B-D90AFCE1DFC9}.Debug|.NET.ActiveCfg = Debug|.NET
+		{099C0FF8-90D2-420A-AA8B-D90AFCE1DFC9}.Debug|.NET.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

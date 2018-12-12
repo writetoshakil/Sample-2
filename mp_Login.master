@@ -1,0 +1,81 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="mp_Login.master.cs" Inherits="mp_Login" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>::...  ...::</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <style type="text/css">
+        .style1
+        {
+            font-size: x-small;
+        }
+    </style>
+</head>
+<body class="body" style="background-color:#333333; background-repeat:repeat-x; vertical-align:top; color: #000000;">
+    <form id="form1" runat="server">
+        <table  border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td>
+        	        <table border="0"  cellpadding="0" cellspacing="0" width="950px"  align="center">
+                        <tr>
+                           <td>
+                                <table width="950px" align="center" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td colspan="2" style="vertical-align: top; background-color:White">
+                                            <table width="950px" align="center" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td style="width:375px; text-align:left">
+                                                        <span style="font-size: small; font-family: Verdana">COMSATS Institute of Information
+                                                            Technology, Lahore</span>
+                                                    </td>
+                                                    <td style="width:375px; text-align:right">
+                                                        
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:90px">
+                                            <img src="images/logo.jpg", style="width: 94px; height: 90px" /></td>
+                                        <td style="width:860px; text-align:center; font-family:Verdana; font-size:larger; color:White">
+                                            <b> Procurement Management System</b></td>
+                                    </tr>
+                                </table>
+                           </td>
+                        </tr>          
+                        <tr>
+                            <td style="background-color:White; height: 327px;">
+                                <asp:contentplaceholder id="ContentPlaceHolderPublic" runat="server">
+                                </asp:contentplaceholder>
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table width="950px" align="center" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td style="width: 800px; background-color:Black; text-align:left; font-family:Verdana; font-size:x-small; color:White">
+                                            Copyright 2013@ Purchase Office – CIIT Lahore
+                                        </td>
+                                        <td style="width: 150px; background-color:Black; text-align:right; font-family:Verdana; font-size:larger; color:White">
+                                            <span class="style1">Product of ITC Solutions</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>		                		                      			
+			        </table> 
+                </td>
+            </tr>
+            
+        </table>  
+    </form>
+</body>
+</html>
